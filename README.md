@@ -2,9 +2,14 @@
 
 ## 🎯 Overview / Business Problem
 
-This project analyzes **vendor sales, purchasing, profitability, and inventory performance** to identify opportunities for improving pricing, inventory management, and vendor relationships.
+This project analyzes **vendor sales, purchasing, profitability, pricing, and inventory performance** to identify opportunities for improving profitability and inventory efficiency.
 
-The analysis focuses on identifying underperforming brands, top vendors, bulk purchasing benefits, inventory turnover, and profitability differences between vendors.
+The analysis focuses on:
+- 🏪 Identifying top and underperforming vendors
+- 🏷️ Finding low-sales, high-margin brands
+- 💰 Understanding bulk purchasing and unit-cost savings
+- 📦 Identifying slow-moving inventory and unsold capital
+- 📊 Comparing profitability across vendor groups
 
 ---
 
@@ -12,14 +17,13 @@ The analysis focuses on identifying underperforming brands, top vendors, bulk pu
 
 The project uses retail and wholesale data covering:
 
-- 🏪 Vendors
 - 🛒 Purchases
-- 💰 Sales
-- 📦 Inventory
-- 💵 Pricing
-- 🚚 Freight costs
+- 💵 Sales
+- 💰 Purchase Prices
+- 🚚 Vendor Invoices & Freight
+- 📦 Beginning & Ending Inventory
 
-The data was combined into a consolidated **Vendor Sales Summary** dataset for analysis.
+The raw CSV files were loaded into **SQLite** and combined into a consolidated `vendor_sales_summary` dataset for analysis.
 
 ---
 
@@ -27,54 +31,57 @@ The data was combined into a consolidated **Vendor Sales Summary** dataset for a
 
 - 🐍 Python
 - 🐼 Pandas
-- 🗃️ SQL
-- 🧮 SQLite
-- 📊 Matplotlib
-- 📈 Seaborn
+- 🗃️ SQL / SQLite
+- 📊 Matplotlib & Seaborn
+- 📐 SciPy
+- ⚙️ SQLAlchemy
 - 📓 Jupyter Notebook
-- 📊 Power BI
+- 📈 Power BI
 
 ---
 
 ## 🔍 Analysis
 
-- 💰 Sales, purchases, and gross profit analysis
+- 💰 Sales, purchases & gross profit
 - 📈 Profit margin analysis
-- 🏪 Vendor performance comparison
-- 📦 Inventory turnover analysis
-- 💵 Bulk purchasing and unit cost analysis
+- 🏪 Vendor performance & purchase contribution
+- 🏷️ Brand performance
+- 📦 Inventory & stock turnover
+- 💵 Bulk purchasing & unit-cost analysis
 - 🚚 Freight cost analysis
-- 🏷️ Brand performance analysis
-- 📊 Vendor purchase contribution
-- 🔎 Low-performing and slow-moving vendors
-- 📐 Correlation and statistical analysis
+- 🔗 Correlation analysis
+- 🧪 Statistical analysis of vendor profitability
 
 ---
 
-## 📊 Power BI Dashboard
+## 📈 Dashboard
 
-The interactive Power BI dashboard covers:
+The Power BI dashboard provides an interactive view of:
 
-- 💰 Total Purchase, Sales & Gross Profit
-- 📈 Profit Margin
+- 💰 Total Sales, Purchase & Gross Profit
+- 📊 Profit Margin
 - 📦 Unsold Inventory Capital
-- 🏪 Top Vendor Contribution
-- 💵 Sales by Vendor
-- 🏷️ Sales by Brand
-- 🔄 Low Inventory Turnover Vendors
-- 📊 Sales vs. Profit Margin by Brand
+- 🏪 Purchase Contribution by Vendor
+- 💵 Top Vendors by Sales
+- 🏷️ Top Brands by Sales
+- 📉 Low-Performing Vendors & Brands
+- 📊 Sales vs. Profit Margin
+
+### 🖼️ Dashboard Preview
+
+![Vendor Performance Dashboard](images/vendor-performance-dashboard.png)
 
 ---
 
 ## 💡 Key Insights
 
-- 🏪 The **top 10 vendors contribute 65.69% of total purchases**, indicating significant vendor concentration.
-- 💵 Bulk purchasing can reduce unit costs by approximately **72%**, reaching around **$10.78 per unit** in the analyzed data.
-- 📦 Approximately **$2.71M of inventory capital is tied up in unsold inventory**.
-- 🏷️ **198 brands** show lower sales but higher profit margins, creating opportunities for targeted promotions or pricing adjustments.
-- 📈 Low-performing vendors have a higher average profit margin of **41.55%**, compared with **31.17%** for top vendors.
-- 🔄 Faster stock turnover does not necessarily translate into higher profitability.
-- 💰 Purchase price has only a weak relationship with total sales dollars and gross profit.
+- 🏪 The **top 10 vendors contribute 65.69% of total purchases**.
+- 💰 Bulk purchasing can reduce unit costs by approximately **72%**.
+- 📦 Approximately **$2.71M** of capital is tied up in unsold inventory.
+- 🏷️ **198 brands** have lower sales but higher profit margins.
+- 📊 Top-performing vendors have a mean profit margin of **31.17%**, compared with **41.55%** for low-performing vendors.
+- 🔗 Purchase price has a weak relationship with total sales dollars and gross profit.
+- 📈 Faster stock turnover does not necessarily result in higher profitability.
 
 ---
 
@@ -82,15 +89,41 @@ The interactive Power BI dashboard covers:
 
 - 🏷️ Re-evaluate pricing for low-sales, high-margin brands.
 - 🏪 Diversify vendor partnerships to reduce supplier dependency.
-- 📦 Use bulk purchasing where appropriate to improve unit costs.
-- 🔄 Reduce slow-moving inventory through better purchasing and clearance strategies.
+- 💰 Leverage bulk purchasing where appropriate.
+- 📦 Optimize slow-moving inventory and reduce tied-up capital.
 - 📣 Improve marketing and distribution for low-performing vendors.
-- 💰 Optimize pricing and operating costs for high-volume vendors.
+- 💵 Optimize pricing and operating costs for high-volume vendors.
 
 ---
 
-## 👤 Author
+## ▶️ How to Run
 
-**Vishal Bhardwaj**
+### 1️⃣ Clone the Repository
 
-📌 Data Analyst | Python | SQL | Power BI
+```bash
+git clone https://github.com/VishalBhardwj/vendor-performance-analysis.git
+cd vendor-performance-analysis
+```
+### 2️⃣ Install Dependencies
+
+```bash
+pip install pandas numpy matplotlib seaborn scipy sqlalchemy jupyter
+```
+
+### 3️⃣ Run the Data Pipeline
+
+```bash
+python script/ingestion_db.py
+python script/get_vendor_summary.py
+```
+This loads the raw CSV files into SQLite and creates the vendor_sales_summary table.
+
+### 4️⃣ Run the Analysis
+
+Open Jupyter Notebook and run the analysis notebooks in the notebook/ folder.
+
+### 👤 Author
+
+Vishal Bhardwaj
+
+📊 Data Analyst | 🐍 Python | 🗃️ SQL | 📈 Power BI 
