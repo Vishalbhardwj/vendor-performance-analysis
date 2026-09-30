@@ -69,7 +69,7 @@ The Power BI dashboard provides an interactive view of:
 
 ### 🖼️ Dashboard Preview
 
-![Vendor Performance Dashboard](images/vendor-performance-dashboard.png)
+![Vendor Performance Dashboard](dashboard.png)
 
 ---
 
